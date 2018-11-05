@@ -1,15 +1,6 @@
 > import Geography
 > import MyMaze
 
-======================================================================
-
-Draw a maze.
-
-***************************************
-*              Question 2             *
-* Complete the definition of drawMaze *
-***************************************
-
 > drawMaze :: Maze -> IO()
 > drawMaze maze = putStr (drawMazeStr maze)
 
@@ -38,18 +29,7 @@ Draw a maze.
 >	| otherwise            = "+   " ++ (drawMazeNS1 maze (x+1) y)
 >		where (width,_) = sizeOf maze
 
-
-======================================================================
-
-Solve the maze, giving a result of type:
-
 > type Path = [Direction]
-
-***************************************
-*            Questions 3--4           *
-*     Complete the definition of      *
-*              solveMaze              *
-***************************************
 
 > solveMaze :: Maze -> Place -> Place -> Maybe Path
 > solveMaze maze start target = solveMazeIter maze target [(start,[])]
@@ -74,8 +54,7 @@ Solve the maze, giving a result of type:
 
 ======================================================================
 
-Some test mazes.  In both cases, the task is to find a path from the bottom
-left corner to the top right.
+Some test mazes.
 
 First a small one
 
@@ -85,7 +64,7 @@ First a small one
 >                ((1,2), E), ((1,1), N)]
 >   in makeMaze (4,3) walls
 
-Now a large one.  Define a function to produce a run of walls:
+Now a large one.
 
 > run (x,y) n E = [((x,y+i),E) | i <- [0..n-1]]
 > run (x,y) n N = [((x+i,y),N) | i <- [0..n-1]]
